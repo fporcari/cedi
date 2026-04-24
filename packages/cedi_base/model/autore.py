@@ -47,7 +47,7 @@ class Table(object):
                           name_long='!![it]Denominazione')
 
         tbl.formulaColumn('n_titoli',
-                          select=dict(table='cedi.titolo_autore',
+                          select=dict(table='cedi_base.titolo_autore',
                                       columns='COUNT(*)',
                                       where='$autore_id=#THIS.id'),
                           dtype='L',

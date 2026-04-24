@@ -44,18 +44,18 @@ def raggruppa_per_titolo(rows):
 
 
 def importa(db, rows, clear=False):
-    tbl_collana = db.table('cedi.collana')
-    tbl_autore = db.table('cedi.autore')
-    tbl_titolo = db.table('cedi.titolo')
-    tbl_titolo_autore = db.table('cedi.titolo_autore')
-    tbl_titolo_codifica = db.table('cedi.titolo_codifica')
+    tbl_collana = db.table('cedi_base.collana')
+    tbl_autore = db.table('cedi_base.autore')
+    tbl_titolo = db.table('cedi_base.titolo')
+    tbl_titolo_autore = db.table('cedi_base.titolo_autore')
+    tbl_titolo_codifica = db.table('cedi_base.titolo_codifica')
 
     if clear:
         print("Pulizia tabelle esistenti...")
         db.rollback()
-        for tbl_name in ('cedi_titolo_codifica', 'cedi_titolo_autore',
-                         'cedi_titolo', 'cedi_autore', 'cedi_collana'):
-            db.execute('TRUNCATE TABLE cedi.%s CASCADE' % tbl_name)
+        for tbl_name in ('cedi_base_titolo_codifica', 'cedi_base_titolo_autore',
+                         'cedi_base_titolo', 'cedi_base_autore', 'cedi_base_collana'):
+            db.execute('TRUNCATE TABLE cedi_base.%s CASCADE' % tbl_name)
         db.commit()
         print("  Tabelle svuotate.")
 

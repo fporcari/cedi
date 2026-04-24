@@ -59,7 +59,7 @@ def parse_date_ddmmyyyy(val):
 
 def crea_canali(db):
     """Crea i canali di default se non esistono."""
-    tbl = db.table('vendite.canale')
+    tbl = db.table('cedi_vend.canale')
     canali = [
         ('MSG', 'Messaggerie'),
         ('BW', 'Bookwire'),
@@ -78,8 +78,8 @@ def crea_canali(db):
 
 def build_isbn_titolo_map(db):
     """Costruisce mappa isbn -> titolo_id dal catalogo cedi."""
-    tbl_codifica = db.table('cedi.titolo_codifica')
-    tbl_titolo = db.table('cedi.titolo')
+    tbl_codifica = db.table('cedi_base.titolo_codifica')
+    tbl_titolo = db.table('cedi_base.titolo')
     isbn_map = {}
     for r in tbl_codifica.query(columns='$codice, $titolo_id').fetch():
         isbn_map[str(r['codice']).strip()] = r['titolo_id']
@@ -91,7 +91,7 @@ def build_isbn_titolo_map(db):
 def crea_movimento(db, canale_codice, periodo_da, periodo_a, tipo_movimento,
                    file_sorgente, valuta='EUR'):
     """Crea un record testata movimento."""
-    tbl = db.table('vendite.movimento')
+    tbl = db.table('cedi_vend.movimento')
     rec = tbl.newrecord(
         canale_codice=canale_codice,
         periodo_da=periodo_da,
@@ -126,7 +126,7 @@ def import_messaggerie_file(db, filepath, isbn_map, tipo):
     tipo_mov = 'VENDITA' if tipo == 'vendite' else 'RESO'
     mov_id = crea_movimento(db, 'MSG', periodo_da, periodo_a, tipo_mov,
                             os.path.basename(filepath))
-    tbl_riga = db.table('vendite.movimento_riga')
+    tbl_riga = db.table('cedi_vend.movimento_riga')
     count = 0
     for i in range(1, ws.nrows):
         row = {headers[c]: ws.cell_value(i, c) for c in range(ws.ncols)}
@@ -156,7 +156,7 @@ def import_messaggerie_file(db, filepath, isbn_map, tipo):
     totale = sum(r.get('NETTO', 0) or 0
                  for r_idx in range(1, ws.nrows)
                  for r in [{headers[c]: ws.cell_value(r_idx, c) for c in range(ws.ncols)}])
-    db.table('vendite.movimento').update(
+    db.table('cedi_vend.movimento').update(
         dict(id=mov_id, totale_importo=totale, totale_quantita=count),
         dict(id=mov_id)
     )
@@ -200,7 +200,7 @@ def import_bookwire_file(db, filepath, isbn_map):
         return 0
     mov_id = crea_movimento(db, 'BW', periodo_da, periodo_a, 'VENDITA',
                             os.path.basename(filepath), valuta='EUR')
-    tbl_riga = db.table('vendite.movimento_riga')
+    tbl_riga = db.table('cedi_vend.movimento_riga')
     count = 0
     for row in rows:
         isbn = (row.get('ISBN') or '').strip()
@@ -292,7 +292,7 @@ def import_kdp_file(db, filepath, isbn_map):
         periodo_a = periodo_da
     mov_id = crea_movimento(db, 'KDP', periodo_da, periodo_a, 'ROYALTY',
                             fname, valuta='EUR')
-    tbl_riga = db.table('vendite.movimento_riga')
+    tbl_riga = db.table('cedi_vend.movimento_riga')
     count = 0
     for row in data_rows:
         asin = str(row.get('Codice ASIN', '') or '').strip()
@@ -344,7 +344,7 @@ def import_xlsx_semplice(db, filepath, isbn_map, tipo, canale_codice):
     wb = openpyxl.load_workbook(filepath)
     ws = wb.active
     headers = [str(c.value or '') for c in ws[1]]
-    tbl = db.table('vendite.inventario')
+    tbl = db.table('cedi_vend.inventario')
     count = 0
     for row in ws.iter_rows(min_row=2, max_row=ws.max_row, values_only=True):
         record = dict(zip(headers, row))
@@ -433,8 +433,8 @@ def clear_vendite(db):
     """Svuota tutte le tabelle vendite."""
     print("Pulizia tabelle vendite...")
     db.rollback()
-    for tbl_name in ('vendite_movimento_riga', 'vendite_movimento', 'vendite_inventario'):
-        db.execute('TRUNCATE TABLE vendite.%s CASCADE' % tbl_name)
+    for tbl_name in ('cedi_vend_movimento_riga', 'cedi_vend_movimento', 'cedi_vend_inventario'):
+        db.execute('TRUNCATE TABLE cedi_vend.%s CASCADE' % tbl_name)
     db.commit()
     print("  Tabelle svuotate.")
 

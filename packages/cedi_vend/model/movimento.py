@@ -29,7 +29,7 @@ class Table(object):
         tbl.column('note', dtype='X', name_long='!![it]Note')
 
         tbl.formulaColumn('n_righe',
-                          select=dict(table='vendite.movimento_riga',
+                          select=dict(table='cedi_vend.movimento_riga',
                                       columns='COUNT(*)',
                                       where='$movimento_id=#THIS.id'),
                           dtype='L',

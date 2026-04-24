@@ -36,14 +36,14 @@ class Table(object):
         tbl.column('note', dtype='X', name_long='!![it]Note')
 
         tbl.formulaColumn('n_autori',
-                          select=dict(table='cedi.titolo_autore',
+                          select=dict(table='cedi_base.titolo_autore',
                                       columns='COUNT(*)',
                                       where='$titolo_id=#THIS.id'),
                           dtype='L',
                           name_long='!![it]N. Autori')
 
         tbl.formulaColumn('n_codifiche',
-                          select=dict(table='cedi.titolo_codifica',
+                          select=dict(table='cedi_base.titolo_codifica',
                                       columns='COUNT(*)',
                                       where='$titolo_id=#THIS.id'),
                           dtype='L',

@@ -6,14 +6,15 @@
         <gnrcore_adm pkgcode="gnrcore:adm"/>
         <gnrcore_email pkgcode="gnrcore:email"/>
         <gnr_it_glbl pkgcode="gnr_it:glbl"/>
-        <cedi pkgcode="cedi"/>
-        <vendite pkgcode="vendite"/>
+        <cedi_base pkgcode="cedi_base"/>
+        <cedi_vend pkgcode="cedi_vend"/>
+        <cedi_app pkgcode="cedi_app"/>
     </packages>
     <authentication pkg="adm">
         <py_auth defaultTags="user" method="authenticate" pkg="adm"/>
     </authentication>
     <site>
-        <wsgi mainpackage="cedi"/>
+        <wsgi mainpackage="cedi_app"/>
         <options liveUpdate="*"/>
     </site>
 </GenRoBag>

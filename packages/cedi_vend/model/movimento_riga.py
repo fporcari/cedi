@@ -14,7 +14,7 @@ class Table(object):
                                                          mode='foreignkey',
                                                          onDelete='cascade')
         tbl.column('titolo_id', size='22', group='_',
-                   name_long='!![it]Titolo').relation('cedi.titolo.id',
+                   name_long='!![it]Titolo').relation('cedi_base.titolo.id',
                                                       relation_name='movimenti',
                                                       mode='foreignkey',
                                                       onDelete='setnull')

@@ -4,12 +4,12 @@ from gnr.app.gnrdbo import GnrDboTable, GnrDboPackage
 
 class Package(GnrDboPackage):
     def config_attributes(self):
-        return dict(comment='Gestionale casa editrice',
-                    sqlschema='cedi',
+        return dict(comment='Vendite e movimenti casa editrice',
+                    sqlschema='cedi_vend',
                     language='it',
-                    name_short='Casa Editrice',
-                    name_long='Casa Editrice',
-                    name_full='Gestionale Casa Editrice')
+                    name_short='Vendite',
+                    name_long='Vendite',
+                    name_full='Vendite e Movimenti')
 
     def config_db(self, pkg):
         pass
