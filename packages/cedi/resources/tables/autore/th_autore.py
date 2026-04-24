@@ -26,7 +26,7 @@ class Form(BaseComponent):
         self.datiAutore(bc.roundedGroupFrame(title='Anagrafica autore',
                                              region='top',
                                              datapath='.record',
-                                             height='18em'))
+                                             height='21em'))
         tc = bc.tabContainer(region='center', margin='2px')
         self.datiFiscali(tc.contentPane(title='Dati fiscali', datapath='.record'))
         self.titoliAutore(tc.contentPane(title='Titoli'))
@@ -62,4 +62,4 @@ class Form(BaseComponent):
         pane.simpleTextArea(value='^.note', editor=True)
 
     def th_options(self):
-        return dict(dialog_height='40em', dialog_width='53em')
+        return dict(dialog_height='43em', dialog_width='53em')

@@ -68,4 +68,4 @@ class Form(BaseComponent):
         fb.field('note', colspan=2, tag='simpleTextArea', height='5em')
 
     def th_options(self):
-        return dict(dialog_height='40em', dialog_width='44em')
+        return dict(dialog_height='43em', dialog_width='44em')

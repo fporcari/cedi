@@ -29,7 +29,7 @@ class Form(BaseComponent):
         self.datiMovimento(bc.roundedGroupFrame(title='Dati movimento',
                                                  region='top',
                                                  datapath='.record',
-                                                 height='20em'))
+                                                 height='23em'))
         tc = bc.tabContainer(region='center', margin='2px')
         self.righeMovimento(tc.contentPane(title='Righe'))
         self.noteMovimento(tc.contentPane(title='Note', datapath='.record'))
@@ -56,4 +56,4 @@ class Form(BaseComponent):
         pane.simpleTextArea(value='^.note', editor=True)
 
     def th_options(self):
-        return dict(dialog_height='44em', dialog_width='56em')
+        return dict(dialog_height='47em', dialog_width='56em')

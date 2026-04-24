@@ -28,7 +28,7 @@ class Form(BaseComponent):
         self.datiTitolo(bc.roundedGroupFrame(title='Dati titolo',
                                              region='top',
                                              datapath='.record',
-                                             height='18em'))
+                                             height='21em'))
         tc = bc.tabContainer(region='center', margin='2px')
         self.codificheTitolo(tc.contentPane(title='Codifiche'))
         self.autoriTitolo(tc.contentPane(title='Autori'))
@@ -59,4 +59,4 @@ class Form(BaseComponent):
         pane.simpleTextArea(value='^.note', editor=True)
 
     def th_options(self):
-        return dict(dialog_height='40em', dialog_width='53em')
+        return dict(dialog_height='43em', dialog_width='53em')
