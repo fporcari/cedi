@@ -33,7 +33,7 @@ class Table(object):
         tbl.column('data_pubblicazione', dtype='D',
                    name_long='!![it]Data pubblicazione')
         tbl.column('attivo', dtype='B', name_long='!![it]Attivo')
-        tbl.column('note', dtype='X', name_long='!![it]Note')
+        tbl.column('note', dtype='T', name_long='!![it]Note')
 
         tbl.formulaColumn('n_autori',
                           select=dict(table='cedi_base.titolo_autore',

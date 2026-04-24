@@ -26,7 +26,7 @@ class Table(object):
         tbl.column('valuta', size=':3', name_long='!![it]Valuta')
         tbl.column('totale_importo', dtype='money', name_long='!![it]Totale importo')
         tbl.column('totale_quantita', dtype='L', name_long='!![it]Totale quantita')
-        tbl.column('note', dtype='X', name_long='!![it]Note')
+        tbl.column('note', dtype='T', name_long='!![it]Note')
 
         tbl.formulaColumn('n_righe',
                           select=dict(table='cedi_vend.movimento_riga',

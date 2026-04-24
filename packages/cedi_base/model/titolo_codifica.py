@@ -25,4 +25,4 @@ class Table(object):
         tbl.column('royalty_percentuale', dtype='percent',
                    name_long='!![it]Royalty %')
         tbl.column('data_uscita', dtype='D', name_long='!![it]Data uscita')
-        tbl.column('note', dtype='X', name_long='!![it]Note')
+        tbl.column('note', dtype='T', name_long='!![it]Note')

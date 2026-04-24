@@ -20,7 +20,7 @@ class Table(object):
         tbl.column('quota_percentuale', dtype='percent',
                    name_long='!![it]Quota %')
         tbl.column('ruolo', size=':30', name_long='!![it]Ruolo')
-        tbl.column('note', dtype='X', name_long='!![it]Note')
+        tbl.column('note', dtype='T', name_long='!![it]Note')
 
     def defaultValues(self):
         return dict(quota_percentuale=100)

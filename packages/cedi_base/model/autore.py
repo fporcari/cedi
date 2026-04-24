@@ -40,7 +40,7 @@ class Table(object):
                                                       onDelete='raise')
         tbl.column('data_contratto', dtype='D',
                    name_long='!![it]Data contratto')
-        tbl.column('note', dtype='X', name_long='!![it]Note')
+        tbl.column('note', dtype='T', name_long='!![it]Note')
 
         tbl.formulaColumn('denominazione',
                           "$cognome || ' ' || $nome",

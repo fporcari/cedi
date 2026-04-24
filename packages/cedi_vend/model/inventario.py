@@ -20,4 +20,4 @@ class Table(object):
         tbl.column('ricavo', dtype='money', name_long='!![it]Ricavo')
         tbl.column('tipo', size=':20', name_long='!![it]Tipo',
                    values='CONCORSO:Concorso,FIERA:Fiera,ECOMMERCE:Ecommerce,OMAGGIO:Omaggio,RESO:Reso')
-        tbl.column('note', dtype='X', name_long='!![it]Note')
+        tbl.column('note', dtype='T', name_long='!![it]Note')

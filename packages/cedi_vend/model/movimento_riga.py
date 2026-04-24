@@ -36,4 +36,4 @@ class Table(object):
                    name_long='!![it]Sconto %')
         tbl.column('aliquota_iva', dtype='percent',
                    name_long='!![it]Aliquota IVA')
-        tbl.column('note', dtype='X', name_long='!![it]Note')
+        tbl.column('note', dtype='T', name_long='!![it]Note')
