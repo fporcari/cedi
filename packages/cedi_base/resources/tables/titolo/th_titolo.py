@@ -25,17 +25,20 @@ class View(BaseComponent):
 class Form(BaseComponent):
     def th_form(self, form):
         bc = form.center.borderContainer()
-        self.datiTitolo(bc.roundedGroupFrame(title='Dati titolo',
-                                             region='top',
-                                             datapath='.record',
-                                             height='26em'))
+        top = bc.borderContainer(region='top', height='26em')
+        self.datiTitolo(top.roundedGroupFrame(title='Dati titolo',
+                                              region='center',
+                                              datapath='.record'))
+        self.autoriTitolo(top.roundedGroupFrame(title='Autori',
+                                                region='right',
+                                                width='20em',
+                                                splitter=True))
         tc = bc.tabContainer(region='center', margin='2px')
         self.codificheTitolo(tc.contentPane(title='Codifiche'))
-        self.autoriTitolo(tc.contentPane(title='Autori'))
         self.noteTitolo(tc.contentPane(title='Note', datapath='.record'))
 
     def datiTitolo(self, pane):
-        fb = pane.div(margin_left='3em', margin_right='5em').formlet(
+        fb = pane.div(margin_left='3em', margin_right='3em').formlet(
             cols=2, border_spacing='4px')
         fb.field('isbn')
         fb.field('collana_codice')
