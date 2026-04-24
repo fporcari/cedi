@@ -13,3 +13,6 @@ class Menu(object):
         movimenti.thpage("Dettaglio Righe", table="cedi_vend.movimento_riga", tags="")
         movimenti.thpage("Inventario", table="cedi_vend.inventario", tags="")
         movimenti.lookupBranch("Tabelle Ausiliarie", pkg="cedi_vend")
+
+        root.packageBranch("Amministrazione", pkg="adm", tags="admin")
+        root.packageBranch("Sistema", pkg="sys", tags="admin")
