@@ -28,7 +28,7 @@ class Form(BaseComponent):
         self.datiTitolo(bc.roundedGroupFrame(title='Dati titolo',
                                              region='top',
                                              datapath='.record',
-                                             height='21em'))
+                                             height='26em'))
         tc = bc.tabContainer(region='center', margin='2px')
         self.codificheTitolo(tc.contentPane(title='Codifiche'))
         self.autoriTitolo(tc.contentPane(title='Autori'))
