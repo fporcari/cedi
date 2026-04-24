@@ -1,0 +1,11 @@
+__pycache__
+.vscode/
+.mypy_cache/
+.pytest_cache/
+instances/*/site/
+instances/*/data/
+*.pyc
+.DS_Store
+.env
+error.log
+DELRAI/
