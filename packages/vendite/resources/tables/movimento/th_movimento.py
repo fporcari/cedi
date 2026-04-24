@@ -35,8 +35,8 @@ class Form(BaseComponent):
         self.noteMovimento(tc.contentPane(title='Note', datapath='.record'))
 
     def datiMovimento(self, pane):
-        fb = pane.div(margin_left='50px', margin_right='80px').formbuilder(
-            cols=2, border_spacing='4px', colswidth='auto', fld_width='100%')
+        fb = pane.div(margin_left='50px', margin_right='80px').formlet(
+            cols=2, border_spacing='4px')
         fb.field('canale_codice')
         fb.field('tipo_movimento')
         fb.field('periodo_da')

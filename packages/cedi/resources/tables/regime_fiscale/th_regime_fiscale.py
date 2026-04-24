@@ -18,7 +18,7 @@ class View(BaseComponent):
 class Form(BaseComponent):
     def th_form(self, form):
         pane = form.record
-        fb = pane.formbuilder(cols=2, border_spacing='4px')
+        fb = pane.formlet(cols=2, border_spacing='4px')
         fb.field('codice')
         fb.field('descrizione')
 

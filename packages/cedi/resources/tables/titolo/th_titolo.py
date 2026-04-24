@@ -35,8 +35,8 @@ class Form(BaseComponent):
         self.noteTitolo(tc.contentPane(title='Note', datapath='.record'))
 
     def datiTitolo(self, pane):
-        fb = pane.div(margin_left='50px', margin_right='80px').formbuilder(
-            cols=2, border_spacing='4px', colswidth='auto', fld_width='100%')
+        fb = pane.div(margin_left='50px', margin_right='80px').formlet(
+            cols=2, border_spacing='4px')
         fb.field('isbn')
         fb.field('collana_codice')
         fb.field('titolo', colspan=2, validate_notnull=True)

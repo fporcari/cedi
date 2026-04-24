@@ -33,8 +33,8 @@ class Form(BaseComponent):
         self.noteAutore(tc.contentPane(title='Note', datapath='.record'))
 
     def datiAutore(self, pane):
-        fb = pane.div(margin_left='50px', margin_right='80px').formbuilder(
-            cols=2, border_spacing='4px', colswidth='auto', fld_width='100%')
+        fb = pane.div(margin_left='50px', margin_right='80px').formlet(
+            cols=2, border_spacing='4px')
         fb.field('cognome', validate_notnull=True)
         fb.field('nome', validate_notnull=True)
         fb.field('email', validate_email=True)
@@ -45,8 +45,8 @@ class Form(BaseComponent):
                  condition_provincia='^.provincia')
 
     def datiFiscali(self, pane):
-        fb = pane.div(margin='10px').formbuilder(
-            cols=2, border_spacing='4px', colswidth='auto', fld_width='100%')
+        fb = pane.div(margin='10px').formlet(
+            cols=2, border_spacing='4px')
         fb.field('codice_fiscale')
         fb.field('partita_iva')
         fb.field('regime_fiscale_codice')

@@ -47,7 +47,7 @@ class ViewFromMovimento(BaseComponent):
 class Form(BaseComponent):
     def th_form(self, form):
         pane = form.record
-        fb = pane.formbuilder(cols=2, border_spacing='4px')
+        fb = pane.formlet(cols=2, border_spacing='4px')
         fb.field('movimento_id')
         fb.field('titolo_id')
         fb.field('isbn')
