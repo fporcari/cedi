@@ -31,8 +31,7 @@ class Form(BaseComponent):
                                               datapath='.record'))
         self.autoriTitolo(top.roundedGroupFrame(title='Autori',
                                                 region='right',
-                                                width='20em',
-                                                splitter=True))
+                                                width='36em'))
         tc = bc.tabContainer(region='center', margin='2px')
         self.codificheTitolo(tc.contentPane(title='Codifiche'))
         self.noteTitolo(tc.contentPane(title='Note', datapath='.record'))
