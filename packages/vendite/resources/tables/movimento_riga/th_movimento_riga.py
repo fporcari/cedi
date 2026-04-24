@@ -65,7 +65,7 @@ class Form(BaseComponent):
         fb.field('tipo_prodotto')
         fb.field('sconto_percentuale')
         fb.field('aliquota_iva')
-        fb.field('note', colspan=2, tag='simpleTextArea', height='80px')
+        fb.field('note', colspan=2, tag='simpleTextArea', height='5em')
 
     def th_options(self):
-        return dict(dialog_height='500px', dialog_width='700px')
+        return dict(dialog_height='40em', dialog_width='44em')

@@ -30,7 +30,7 @@ class Form(BaseComponent):
         fb.field('quantita')
         fb.field('ricavo')
         fb.field('tipo')
-        fb.field('note', colspan=2, tag='simpleTextArea', height='80px')
+        fb.field('note', colspan=2, tag='simpleTextArea', height='5em')
 
     def th_options(self):
-        return dict(dialog_height='400px', dialog_width='600px')
+        return dict(dialog_height='28em', dialog_width='38em')

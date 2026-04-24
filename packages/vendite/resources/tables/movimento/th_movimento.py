@@ -29,13 +29,13 @@ class Form(BaseComponent):
         self.datiMovimento(bc.roundedGroupFrame(title='Dati movimento',
                                                  region='top',
                                                  datapath='.record',
-                                                 height='200px'))
+                                                 height='20em'))
         tc = bc.tabContainer(region='center', margin='2px')
         self.righeMovimento(tc.contentPane(title='Righe'))
         self.noteMovimento(tc.contentPane(title='Note', datapath='.record'))
 
     def datiMovimento(self, pane):
-        fb = pane.div(margin_left='50px', margin_right='80px').formlet(
+        fb = pane.div(margin_left='3em', margin_right='5em').formlet(
             cols=2, border_spacing='4px')
         fb.field('canale_codice')
         fb.field('tipo_movimento')
@@ -56,4 +56,4 @@ class Form(BaseComponent):
         pane.simpleTextArea(value='^.note', editor=True)
 
     def th_options(self):
-        return dict(dialog_height='600px', dialog_width='900px')
+        return dict(dialog_height='44em', dialog_width='56em')

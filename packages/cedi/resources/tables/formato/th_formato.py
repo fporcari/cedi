@@ -23,4 +23,4 @@ class Form(BaseComponent):
         fb.field('descrizione')
 
     def th_options(self):
-        return dict(dialog_height='400px', dialog_width='600px')
+        return dict(dialog_height='15em', dialog_width='25em')

@@ -26,14 +26,14 @@ class Form(BaseComponent):
         self.datiAutore(bc.roundedGroupFrame(title='Anagrafica autore',
                                              region='top',
                                              datapath='.record',
-                                             height='200px'))
+                                             height='18em'))
         tc = bc.tabContainer(region='center', margin='2px')
         self.datiFiscali(tc.contentPane(title='Dati fiscali', datapath='.record'))
         self.titoliAutore(tc.contentPane(title='Titoli'))
         self.noteAutore(tc.contentPane(title='Note', datapath='.record'))
 
     def datiAutore(self, pane):
-        fb = pane.div(margin_left='50px', margin_right='80px').formlet(
+        fb = pane.div(margin_left='3em', margin_right='5em').formlet(
             cols=2, border_spacing='4px')
         fb.field('cognome', validate_notnull=True)
         fb.field('nome', validate_notnull=True)
@@ -45,7 +45,7 @@ class Form(BaseComponent):
                  condition_provincia='^.provincia')
 
     def datiFiscali(self, pane):
-        fb = pane.div(margin='10px').formlet(
+        fb = pane.div(margin='0.6em').formlet(
             cols=2, border_spacing='4px')
         fb.field('codice_fiscale')
         fb.field('partita_iva')
@@ -62,4 +62,4 @@ class Form(BaseComponent):
         pane.simpleTextArea(value='^.note', editor=True)
 
     def th_options(self):
-        return dict(dialog_height='550px', dialog_width='850px')
+        return dict(dialog_height='40em', dialog_width='53em')

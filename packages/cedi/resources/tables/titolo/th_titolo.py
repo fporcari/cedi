@@ -28,14 +28,14 @@ class Form(BaseComponent):
         self.datiTitolo(bc.roundedGroupFrame(title='Dati titolo',
                                              region='top',
                                              datapath='.record',
-                                             height='180px'))
+                                             height='18em'))
         tc = bc.tabContainer(region='center', margin='2px')
         self.codificheTitolo(tc.contentPane(title='Codifiche'))
         self.autoriTitolo(tc.contentPane(title='Autori'))
         self.noteTitolo(tc.contentPane(title='Note', datapath='.record'))
 
     def datiTitolo(self, pane):
-        fb = pane.div(margin_left='50px', margin_right='80px').formlet(
+        fb = pane.div(margin_left='3em', margin_right='5em').formlet(
             cols=2, border_spacing='4px')
         fb.field('isbn')
         fb.field('collana_codice')
@@ -59,4 +59,4 @@ class Form(BaseComponent):
         pane.simpleTextArea(value='^.note', editor=True)
 
     def th_options(self):
-        return dict(dialog_height='550px', dialog_width='850px')
+        return dict(dialog_height='40em', dialog_width='53em')
